@@ -43,7 +43,7 @@ public class PersonNameTest
     public void AssertDto(PersonName name, PersonNameDto expected)
     {
         var representation = new DbPersonNameRepresentation();
-        name.RepresentAs(representation);
+        name.Fill(representation);
         var dto = representation.Dto();
         Assert.That(dto, Is.EqualTo(expected));
     }
@@ -51,21 +51,21 @@ public class PersonNameTest
     private void AssertListName(PersonName name, string expected)
     {
         var representation = new ListPersonNameRepresentation();
-        name.RepresentAs(representation);
+        name.Fill(representation);
         Assert.That(representation.Serialize(), Is.EqualTo(expected));
     }
 
     private void AssertFullName(PersonName name, string expected)
     {
         var representation = new FullPersonNameRepresentation();
-        name.RepresentAs(representation);
+        name.Fill(representation);
         Assert.That(representation.Serialize(), Is.EqualTo(expected));
     }
 
     private void AssertDniName(PersonName name, string expected)
     {
         var representation = new DniPersonNameRepresentation();
-        name.RepresentAs(representation);
+        name.Fill(representation);
         Assert.That(representation.Serialize(), Is.EqualTo(expected));
     }
 }

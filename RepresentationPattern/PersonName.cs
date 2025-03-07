@@ -11,7 +11,7 @@ public sealed class PersonName
         _surname = surname;
     }
     
-    public void RepresentAs(PersonNameRepresentation representation)
+    public void Fill(PersonNameRepresentation representation)
     {
         representation.SetName(_name);
         representation.SetSurname(_surname);
