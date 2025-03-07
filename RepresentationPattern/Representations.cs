@@ -4,8 +4,8 @@ using System.Text;
 namespace RepresentationPattern;
 public class ListPersonNameRepresentation : PersonNameRepresentation
 {
-    private string _name;
-    private string _surname;
+    private string _name = null!;
+    private string _surname = null!;
 
     public void SetName(string name)
     {
@@ -25,8 +25,8 @@ public class ListPersonNameRepresentation : PersonNameRepresentation
 
 public class FullPersonNameRepresentation : PersonNameRepresentation
 {
-    private string _name;
-    private string _surname;
+    private string _name = null!;
+    private string _surname = null!;
 
     public void SetName(string name)
     {
@@ -46,8 +46,8 @@ public class FullPersonNameRepresentation : PersonNameRepresentation
 
 public class DniPersonNameRepresentation : PersonNameRepresentation
 {
-    private string _name;
-    private string _surname;
+    private string _name = null!;
+    private string _surname = null!;
 
     public void SetName(string name)
     {
@@ -80,8 +80,8 @@ public class DniPersonNameRepresentation : PersonNameRepresentation
 
 public class DbPersonNameRepresentation : PersonNameRepresentation
 {
-    private string _name;
-    private string _surname;
+    private string _name = null!;
+    private string _surname = null!;
 
     public PersonNameDto Dto()
     {
@@ -99,7 +99,7 @@ public class DbPersonNameRepresentation : PersonNameRepresentation
     }
 }
 
-public class PersonNameDto
+public record PersonNameDto
 {
     private readonly string _name;
     private readonly string _surname;
@@ -118,24 +118,6 @@ public class PersonNameDto
     public string Surname()
     {
         return _surname;
-    }
-
-    protected bool Equals(PersonNameDto other)
-    {
-        return _name == other._name && _surname == other._surname;
-    }
-
-    public override bool Equals(object? obj)
-    {
-        if (obj is null) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != GetType()) return false;
-        return Equals((PersonNameDto)obj);
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(_name, _surname);
     }
 }
 
