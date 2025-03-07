@@ -40,7 +40,7 @@ public class PersonNameTest
         );
     }
 
-    public void AssertDto(PersonName name, PersonNameDto expected)
+    private void AssertDto(PersonName name, PersonNameDto expected)
     {
         var representation = new DbPersonNameRepresentation();
         name.Fill(representation);
